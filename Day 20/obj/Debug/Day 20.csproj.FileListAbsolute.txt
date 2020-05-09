@@ -1,0 +1,6 @@
+C:\Users\Faridun\Allif Academy\Day 20\Day 20\Day 20\bin\Debug\Day 20.exe.config
+C:\Users\Faridun\Allif Academy\Day 20\Day 20\Day 20\bin\Debug\Day 20.exe
+C:\Users\Faridun\Allif Academy\Day 20\Day 20\Day 20\bin\Debug\Day 20.pdb
+C:\Users\Faridun\Allif Academy\Day 20\Day 20\Day 20\obj\Debug\Day 20.csprojResolveAssemblyReference.cache
+C:\Users\Faridun\Allif Academy\Day 20\Day 20\Day 20\obj\Debug\Day 20.exe
+C:\Users\Faridun\Allif Academy\Day 20\Day 20\Day 20\obj\Debug\Day 20.pdb
