@@ -20,7 +20,7 @@ namespace Day_20
             Task23();
 
             //Задание 2.4
-            Task23();
+            Task24();
 
             Console.Read();
         }
@@ -35,7 +35,7 @@ namespace Day_20
             var editedList = from elem in numbersStr
                              select elem;
             editedList = editedList.Reverse();
-            Console.Write(randNumber + $"\t[{string.Join(", ", editedList)}]\n");
+            Console.Write(randNumber + $"\t=>\t[{string.Join(", ", editedList)}]\n");
 
             Console.WriteLine(new string('*', 25));
         }
@@ -53,7 +53,7 @@ namespace Day_20
                 negativeSum += i;
 
             int[] results = { positiveCount, negativeSum };
-            Console.WriteLine($"[{string.Join(", ", numbers)}]\t[{string.Join(", ", results)}]");
+            Console.WriteLine($"[{string.Join(", ", numbers)}]\t=>\t[{string.Join(", ", results)}]");
 
             Console.WriteLine(new string('*', 25));
         }
@@ -67,7 +67,7 @@ namespace Day_20
             var editedList = from elem in objects
                              orderby elem.Length
                              select elem;
-            Console.WriteLine($"[{string.Join(", ", objects)}]\t[{string.Join(", ", editedList)}]");
+            Console.WriteLine($"[{string.Join(", ", objects)}]\t=>\t[{string.Join(", ", editedList)}]");
             Console.WriteLine(new string('*', 25));
         }
 
@@ -76,11 +76,20 @@ namespace Day_20
             Console.WriteLine("Task 2.4");
             Console.WriteLine(new string('*', 25));
 
-            string[] objects = { "Telescopes", "Glasses", "Eyes", "Monocles" };
-            var editedList = from elem in objects
-                             orderby elem.Length
-                             select elem;
-            Console.WriteLine($"[{string.Join(", ", objects)}]\t[{string.Join(", ", editedList)}]");
+            int[] numbers = { 2, 2, 2, 2, 1 };
+
+            var groupedNumber = from elem in numbers
+                                group elem by elem;
+
+            List<int> primaryNumber = new List<int>();
+
+            foreach (var item in groupedNumber)
+            {
+                primaryNumber.Add(item.Key);
+            }
+
+            Console.WriteLine($"[{string.Join(", ", numbers)}]\t=>\t[{primaryNumber[1].ToString()}]");
+
             Console.WriteLine(new string('*', 25));
         }
     }
