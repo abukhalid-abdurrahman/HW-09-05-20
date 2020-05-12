@@ -32,6 +32,7 @@ namespace Day_20
 
             int randNumber = new Random().Next(300000, 500000);
             string numbersStr = randNumber.ToString();
+
             var editedList = from elem in numbersStr
                              select elem;
             editedList = editedList.Reverse();
@@ -46,13 +47,17 @@ namespace Day_20
             Console.WriteLine(new string('*', 25));
 
             int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15 };
-            var positiveNumbersList = numbers.TakeWhile(x => x > 0);
-            var negativeNumbersList = numbers.Skip(positiveNumbersList.Count()).TakeWhile(x => x < 0);
-            int positiveCount = positiveNumbersList.Count(), negativeSum = 0;
-            foreach (int i in negativeNumbersList)
-                negativeSum += i;
 
-            int[] results = { positiveCount, negativeSum };
+            var positiveNumbersList = from elem in numbers
+                                      where elem > 0
+                                      select elem;
+
+            var negativeNumbersList = from elem in numbers
+                                      where elem < 0
+                                      select elem;
+
+            int[] results = { positiveNumbersList.Count(), negativeNumbersList.Sum() };
+
             Console.WriteLine($"[{string.Join(", ", numbers)}]\t=>\t[{string.Join(", ", results)}]");
 
             Console.WriteLine(new string('*', 25));
@@ -67,7 +72,9 @@ namespace Day_20
             var editedList = from elem in objects
                              orderby elem.Length
                              select elem;
+
             Console.WriteLine($"[{string.Join(", ", objects)}]\t=>\t[{string.Join(", ", editedList)}]");
+
             Console.WriteLine(new string('*', 25));
         }
 
@@ -76,19 +83,11 @@ namespace Day_20
             Console.WriteLine("Task 2.4");
             Console.WriteLine(new string('*', 25));
 
-            int[] numbers = { 2, 2, 2, 2, 1 };
+            int[] numbers = { 6, 6, 6, 6, 6, 10 };
 
-            var groupedNumber = from elem in numbers
-                                group elem by elem;
+            var primaryNumber = numbers.GroupBy(x => x).Where(x => x.ToList().Count == 1).Select(x => x.Key);
 
-            List<int> primaryNumber = new List<int>();
-
-            foreach (var item in groupedNumber)
-            {
-                primaryNumber.Add(item.Key);
-            }
-
-            Console.WriteLine($"[{string.Join(", ", numbers)}]\t=>\t[{primaryNumber[1].ToString()}]");
+            Console.WriteLine($"[{string.Join(", ", numbers)}]\t=>\t[{primaryNumber.ToArray()[0]}]");
 
             Console.WriteLine(new string('*', 25));
         }
